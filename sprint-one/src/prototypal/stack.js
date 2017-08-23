@@ -3,16 +3,21 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var someInstance = Object.create(stackMethods);
   someInstance.stackSize = 0;
+  someInstance.storage = {};
 
   return someInstance;
 };
 
 var stackMethods = {
-  push: function () {
+  push: function (value) {
+    this.storage[this.stackSize] = value;
     this.stackSize++;
+    return value;
   },
   pop: function () {
     this.stackSize--;
+    return this.storage[this.stackSize];
+
   }, 
   size: function() {
     if (this.stackSize < 0) {
