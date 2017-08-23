@@ -20,7 +20,7 @@ var stackMethods = {
     return this.storage[this.stackSize];
   },
   size: function () {
-    if(this.stackSize < 0) {
+    if (this.stackSize < 0) {
       this.stackSize = 0;
     }
     return this.stackSize;
