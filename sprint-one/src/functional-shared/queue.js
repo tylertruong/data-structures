@@ -13,6 +13,9 @@ var queueMethods = {
   enqueue: function () {
     this.stackSize++;
   },
+  dequeue: function () {
+
+  },
   size: function () {
     return this.stackSize;
   } 
