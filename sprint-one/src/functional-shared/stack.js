@@ -9,7 +9,8 @@ var Stack = function() {
 };
 
 var stackMethods = {
-  pop: {},
+  pop: function() {
+  },
   push: function () {
     this.stackSize++;
   },
