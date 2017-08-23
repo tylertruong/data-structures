@@ -16,16 +16,14 @@ var Queue = function() {
 var queueMethods = {
   enqueue: function (value) {
     this.stackSize++;
-    var temp = this.firstItem;
-    this.storage[temp] = value;
+    this.storage[this.firstItem] = value;
     this.firstItem++;
-    return this.storage[temp]; 
+    return this.storage[this.firstItem - 1]; 
   },
   dequeue: function () {
     this.stackSize--;
-    var temp = this.lastItem;
     this.lastItem++;
-    return this.storage[temp];
+    return this.storage[this.lastItem - 1];
   },
   size: function () {
     if (this.stackSize < 0) {

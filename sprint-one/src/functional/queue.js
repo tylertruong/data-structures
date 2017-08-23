@@ -11,17 +11,15 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     size++;
-    var temp = firstItem;
-    storage[temp] = value;
+    storage[firstItem] = value;
     firstItem++;
-    return storage[temp];
+    return storage[firstItem - 1];
   };
 
   someInstance.dequeue = function() {
     size--;
-    var temp = lastItem;
     lastItem++;
-    return storage[temp];
+    return storage[lastItem - 1];
   };
 
   someInstance.size = function() {
