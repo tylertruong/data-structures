@@ -12,12 +12,12 @@ var Stack = function() {
 var stackMethods = {
   pop: function() {
     this.stackSize--;
-    return this.storage[this.stackSize - 1];
+    return this.storage[this.stackSize];
   },
   push: function (value) {
     this.storage[this.stackSize] = value;
     this.stackSize++;
-    return this.storage[this.stackSize];
+    return this.storage[this.stackSize - 1];
   },
   size: function () {
     if (this.stackSize < 0) {
