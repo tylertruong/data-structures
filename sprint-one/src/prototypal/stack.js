@@ -12,7 +12,7 @@ var stackMethods = {
   push: function (value) {
     this.storage[this.stackSize] = value;
     this.stackSize++;
-    return value;
+    return this.storage[this.stackSize - 1];
   },
   pop: function () {
     this.stackSize--;
