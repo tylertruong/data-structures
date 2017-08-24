@@ -4,7 +4,7 @@ var Stack = function() {
   var someInstance = {};
   someInstance.storage = {};
   someInstance.stackSize = 0;
-  extend (someInstance, stackMethods);
+  _.extend (someInstance, stackMethods);
 
   return someInstance;
 };
@@ -27,13 +27,4 @@ var stackMethods = {
   }
 };
 
-var extend = function(obj) {
 
-  var preArgs = Array.prototype.slice.call(arguments);
-  var args = preArgs.slice(1);
-  _.each(args, function(item) {
-    _.each(item, function(value, keys) {
-      obj[keys] = value;
-    });
-  });
-};
