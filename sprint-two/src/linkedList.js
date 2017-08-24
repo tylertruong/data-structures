@@ -5,8 +5,8 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     if (list.tail) {
-      list.head = list.tail;
-      list.tail = Node(value);
+      list.tail.next = Node(value);
+      list.tail = list.tail.next;
     } else {
       list.tail = Node(value);
       list.head = list.tail;
@@ -16,17 +16,21 @@ var LinkedList = function() {
   list.removeHead = function() {
     if (list.head) {
       var temp = list.head.value;
-      list.head = list.tail;
+      list.head = list.head.next;
       return temp;
     }
   };
 
   list.contains = function(target) {
-    for (var key in list) {
-      if (list[key]['value'] === target) {
+    var current = list.head;
+    while (current !== null) {
+      if (current.value === target) {
         return true;
+      } else {
+        current = current.next;
       }
-    } return false;
+    }
+    return false;
   };
 
   return list;
