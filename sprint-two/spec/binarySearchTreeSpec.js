@@ -36,4 +36,15 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
   });
+
+
+  it('should take non numeric values', function() {
+    binarySearchTree.insert('apple');
+    binarySearchTree.insert('banana');
+    binarySearchTree.insert('cat');
+    binarySearchTree.insert('dog');
+    expect(binarySearchTree.right.right.value).to.equal('banana');
+    expect(binarySearchTree.right.right.right.value).to.equal('cat');
+  });
+
 });
