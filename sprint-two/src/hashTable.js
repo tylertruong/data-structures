@@ -11,7 +11,7 @@ HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var arr = this._storage.get(index) || [];
   var present;
-  for(var i = 0; i < arr.length; i += 2) {
+  for (var i = 0; i < arr.length; i += 2) {
     if (arr[i] === k) {
       present = i;
     }
@@ -48,7 +48,7 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var arr = this._storage.get(index);
-  for(var i = 0; i < arr.length; i += 2) {
+  for (var i = 0; i < arr.length; i += 2) {
     if (arr[i] === k) {
       return arr[i + 1];
     }
@@ -60,7 +60,7 @@ HashTable.prototype.retrieve = function(k) {
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var arr = this._storage.get(index);
-  for(var i = 0; i < arr.length; i += 2) {
+  for (var i = 0; i < arr.length; i += 2) {
     if (arr[i] === k) {
       arr.splice(i, 2);
     }
