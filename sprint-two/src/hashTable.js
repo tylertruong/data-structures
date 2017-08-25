@@ -27,13 +27,13 @@ HashTable.prototype.insert = function(k, v) {
 
 
   this._entries++;
-  if(this._entries/this._limit >= .75) {
+  if (this._entries / this._limit >= .75) {
 
     this._limit *= 2;
     var temp = LimitedArray(this._limit);
     var newLimit = this._limit;
     this._storage.each(function (storagei, i, storage) {
-      if(storagei !== undefined) {
+      if (storagei !== undefined) {
         for (var i = 0; i < storagei.length; i += 2) {
           var index = getIndexBelowMaxForKey(storagei[i], newLimit);
           var arr = temp.get(index) || [];
@@ -73,13 +73,13 @@ HashTable.prototype.remove = function(k) {
   this._storage.set(index, arr);
 
   this._entries--;
-  if(this._entries/this._limit <= .25 && this._limit > 8) {
+  if (this._entries / this._limit <= .25 && this._limit > 8) {
 
     this._limit *= .5;
     let temp = LimitedArray(this._limit);
     let newLimit = this._limit;
     this._storage.each(function (storagei, i, storage) {
-      if(storagei !== undefined) {
+      if (storagei !== undefined) {
         for (var i = 0; i < storagei.length; i += 2) {
           var index = getIndexBelowMaxForKey(storagei[i], newLimit);
           var arr = temp.get(index) || [];
