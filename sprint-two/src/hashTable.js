@@ -16,11 +16,8 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var obj = this._storage.get(index);
-  for (var key in obj) {
-    if (key === k) {
-      return obj[key];
-    }
-  }
+  return obj[k];
+
 };
 
 HashTable.prototype.remove = function(k) {
@@ -35,8 +32,8 @@ HashTable.prototype.remove = function(k) {
 /*
  * Complexity: What is the time complexity of the above functions?
  insert = O(n);
- retrieve = O(n);
- remote = O(n);
+ retrieve = O(1);
+ remote = O(1);
  */
 
 

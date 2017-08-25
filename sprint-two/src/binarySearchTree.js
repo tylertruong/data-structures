@@ -1,6 +1,6 @@
 var BinarySearchTree = function(value) {
 
-  var someInstance = Object.create(binarySearchMethods);
+  var someInstance = Object.create(BinarySearchTree.prototype);
 
   someInstance.value = value;
 
@@ -8,9 +8,7 @@ var BinarySearchTree = function(value) {
 };
 
 
-binarySearchMethods = {};
-
-binarySearchMethods.insert = function (value) {
+BinarySearchTree.prototype.insert = function (value) {
 
   if (value < this.value) {
     if (this.left) {
@@ -28,7 +26,7 @@ binarySearchMethods.insert = function (value) {
  
 };
 
-binarySearchMethods.contains = function (value) {
+BinarySearchTree.prototype.contains = function (value) {
 
   if (value < this.value) {
     if (this.left) {
@@ -49,7 +47,7 @@ binarySearchMethods.contains = function (value) {
 };
  
 
-binarySearchMethods.depthFirstLog = function (callback) {
+BinarySearchTree.prototype.depthFirstLog = function (callback) {
   callback(this.value);
   if (this.left) {
     this.left.depthFirstLog(callback);
