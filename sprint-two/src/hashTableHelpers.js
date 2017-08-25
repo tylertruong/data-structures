@@ -16,12 +16,10 @@ var LimitedArray = function(limit) {
 
   var limitedArray = {};
   limitedArray.get = function(index) {
-    console.log('this is what the get storage is now: ', storage);
     checkLimit(index);
     return storage[index];
   };
   limitedArray.set = function(index, value) {
-    console.log('this is what the storage is now: ', storage);
     checkLimit(index);
     storage[index] = value;
   };
