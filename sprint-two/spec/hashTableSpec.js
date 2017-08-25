@@ -73,7 +73,7 @@ describe('hashTable', function() {
       expect(hashTable.retrieve(randomVal)).to.equal(valuesInHash[randomVal]);
     }
   });
-  
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   it ('should double in size when needed', function() {
     _.each(people, function(person) {
