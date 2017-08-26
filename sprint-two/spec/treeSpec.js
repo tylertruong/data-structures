@@ -53,7 +53,7 @@ describe('tree', function() {
   it('should apply a callback on every value', function() {
 
     var array = [];
-    var func = function(node) { array.push(node.value);};
+    var func = function(node) { array.push(node.value); };
     tree.addChild(5);
     tree.children[0].addChild(7);
     tree.traverse(func);
