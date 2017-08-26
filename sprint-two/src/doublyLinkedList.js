@@ -6,6 +6,7 @@ var DoublyLinkedList = function() {
   list.addToTail = function(value) {
     if (list.tail) {
       list.tail.next = Node(value);
+      list.tail.next.previous = list.tail;
       list.tail = list.tail.next;
     } else {
       list.tail = Node(value);
@@ -14,29 +15,42 @@ var DoublyLinkedList = function() {
   };
 
   list.addToHead = function(value) {
-    if (list.tail) {
-      list.tail.next = Node(value);
-      list.tail = list.tail.next;
+    if (list.head) {
+      list.head.previous = Node(value);
+      list.head.previous.next = list.head;
+      list.head = list.head.previous;
     } else {
-      list.tail = Node(value);
-      list.head = list.tail;
+      list.head = Node(value);
+      list.tail = list.head;
     }
   };
 
   list.removeHead = function() {
-    if (list.head) {
+    if (list.head === list.tail) {
+      temp = list.head.value;
+      list.head = null;
+      list.tail = null;
+      return temp;
+    } else if (list.head) {
       var temp = list.head.value;
+      list.head.next.previous = null;
       list.head = list.head.next;
       return temp;
-    }
+    } 
   };
 
   list.removeTail = function() {
-    if (list.head) {
-      var temp = list.head.value;
-      list.head = list.head.next;
+    if (list.head === list.tail) {
+      temp = list.head.value;
+      list.head = null;
+      list.tail = null;
       return temp;
-    }
+    } else if (list.tail) {
+      var temp = list.tail.value;
+      list.tail.previous.next = null;
+      list.tail = list.tail.previous;
+      return temp;
+    } 
   };
 
 
